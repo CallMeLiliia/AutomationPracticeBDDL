@@ -1,7 +1,7 @@
 package utils;
 
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
+
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -10,26 +10,27 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 public class Reporter {
 
 	static ExtentHtmlReporter extentHtmlReporter;
-	static ExtentReports extentsReports;
+	static ExtentReports extentReports;
 	static ExtentTest extentTest;
 	static ExtentTest step;
 
 	public static void initReporter() {
 
-		if (extentsReports == null) {
+		if (extentReports == null) {
 			extentHtmlReporter = new ExtentHtmlReporter("automation-report.html");
-			extentsReports = new ExtentReports();
-			extentsReports.attachReporter(extentHtmlReporter);
+			extentReports = new ExtentReports();
+			extentReports.attachReporter(extentHtmlReporter);
 		}
 	}
 
-	public static void createClass(String classname) {
+	public static void createClass(String className) {
 
-		extentTest = extentsReports.createTest(classname);
+		extentTest = extentReports.createTest(className);
 	}
 
 	public static void createTest(String testName) {
-		step = extentTest.createNode(testName);
+	//	step = extentReports.createTest(testName).createNode("steps");
+		step = extentReports.createTest(testName);		//step = extentTest.createNode(testName);
 	}
 	
 	public static void verify (String expected, String actual) {
@@ -44,6 +45,6 @@ public class Reporter {
 
 	@AfterMethod
 	public static void saveReport() {
-		extentsReports.flush();
+		extentReports.flush();
 	}
 }

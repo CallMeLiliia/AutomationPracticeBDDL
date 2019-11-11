@@ -13,7 +13,7 @@ public class TestParameterDemo extends Driver{
 	@Test
 	public void Login_with_invalid_userid(String u, String p) {
 
-		driverHelper.openUrl("http://automationpractice.com");
+		driverHelper.openUrl("http://www.automationpractice.com");
 		driverHelper.click(By.className("login"), 5);
 		
 			

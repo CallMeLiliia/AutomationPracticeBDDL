@@ -5,9 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import driver_factory.Driver;
+import driver_factory.NonStaticDriver;
 
 /**
  * 
@@ -17,7 +19,7 @@ import driver_factory.Driver;
  *
  */
 
-public class RadioButton extends Driver {
+public class RadioButton extends NonStaticDriver {
 	@Test
 	public void test1() {
 		driver.get("http://testleaf.herokuapp.com/pages/radio.html");

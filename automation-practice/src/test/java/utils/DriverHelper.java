@@ -11,21 +11,27 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public final class DriverHelper {
 	private WebDriver driver;
 	private String mainWindowHandle;
+	private EventFiringWebDriver eDriver;
 
 	public DriverHelper(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public DriverHelper(EventFiringWebDriver driver) {
+		this.eDriver = driver;
+	}
 
 	public void openUrl(String url) {
-		driver.get(url);
+		eDriver.get(url);
 		// Reporter.step.info("Navigate to : "+url);
-		mainWindowHandle = driver.getWindowHandle();
+		mainWindowHandle = eDriver.getWindowHandle();
 	}
 
 	public String getMainWindowhandle() {
@@ -34,21 +40,21 @@ public final class DriverHelper {
 
 	public void waitForElementVisibility(By by, int timeOutInSeconds) {
 
-		new WebDriverWait(driver, timeOutInSeconds).until(ExpectedConditions.visibilityOfElementLocated(by));
+		new WebDriverWait(eDriver, timeOutInSeconds).until(ExpectedConditions.visibilityOfElementLocated(by));
 
 	}
 
 	public WebElement getElement(By by, int timeOutInSeconds) {
 
 		waitForElementVisibility(by, timeOutInSeconds);
-		return driver.findElement(by);
+		return eDriver.findElement(by);
 
 	}
 
 	public List<WebElement> getElements(By by, int timeOutInSeconds) {
 
 		waitForElementVisibility(by, timeOutInSeconds);
-		return driver.findElements(by);
+		return eDriver.findElements(by);
 	}
 
 	public void click(By by, int timeOutInSeconds) {
@@ -75,7 +81,7 @@ public final class DriverHelper {
 	}
 
 	public void takeScreenshot() {
-		TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
+		TakesScreenshot takesScreenshot = (TakesScreenshot) eDriver;
 		// getScreenshotAs method to create image file
 		File file = takesScreenshot.getScreenshotAs(OutputType.FILE);
 
@@ -92,19 +98,19 @@ public final class DriverHelper {
 
 	public void switchToNewWindow() {
 
-		Set<String> handles = driver.getWindowHandles();
+		Set<String> handles = eDriver.getWindowHandles();
 		for (String h : handles) {
 			if (h.equals(mainWindowHandle)) {
 				System.out.println("driver will not switch");
 			} else {
-				driver.switchTo().window(h);
+				eDriver.switchTo().window(h);
 			}
 		}
 	}
 
 	public void switchToMainWindow() {
 
-		driver.switchTo().window(mainWindowHandle);
+		eDriver.switchTo().window(mainWindowHandle);
 	}
 
 }

@@ -1,6 +1,7 @@
-package new_driver_factory;
+package driver_factory;
 
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -10,19 +11,19 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Listeners;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
+import new_driver_factory.ReporterNew;
 import utils.AppProperties;
 import utils.Common;
 import utils.DriverHelper;
-import new_driver_factory.ReporterNew;
+import utils.Reporter;
 
-@Listeners(driver_factory.TestNGListener.class)
-public class EDriverNew {
-
+public class EDriver {
+	
 	protected EventFiringWebDriver driver;
 	protected WebDriver sDriver;
-	protected DriverHelperNew driverHelperNew;
+	protected DriverHelper driverHelper;
 
 	@BeforeSuite
 	public void initializeReporter() {
@@ -39,52 +40,40 @@ public class EDriverNew {
 	@BeforeTest
 	public void init() {
 		if (sDriver == null)
-			sDriver =getDriver(AppProperties.BROWSER_TYPE);
-     //if ( driverHelper == null )driverHelper = new DriverHelperNew(driver);
-	//	Common.deleteFiles("/target/screenshots");
-		ReporterNew.createTest("test");
-		
-		
+			sDriver = getDriver(AppProperties.BROWSER_TYPE);
+// if ( driverHelper == null ) driverHelper = newDriverHelper(driver);
+
+		Common.deletFiles("/target/screenshots");
 
 	}
 
-	protected WebDriver getDriver(String browserType) {
 
+
+	protected WebDriver getDriver(String browserType) {
+        WebDriver driver = null;
 		switch (browserType) {
 		case "chrome":
-			sDriver = getChromeDriver();
+			driver = getChromeDriver();
 
 //		driver.manage().window().maximize();
 			break;
-
-		case "chrome-headless":
-			sDriver =getHeadlessChromeDriver();
-
-			break;
 		case "firefox":
-			sDriver = getFirefoxDriver();
-
-			sDriver.manage().window().maximize();
+			driver = getFirefoxDriver();
+			driver.manage().window().maximize();
 			break;
 
 		default:
-			System.out.println("Browser type " +browserType + " invalid");
-
+			System.out.println("Browser type " + browserType + " invalid");
 			break;
 
 		}
-		this.driver = new EventFiringWebDriver(sDriver);
-		this.driver.register(new DriverListenerNew());
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(10,
-
-				TimeUnit.SECONDS);
-
-		driver.manage().timeouts().implicitlyWait(10,
-
-				TimeUnit.SECONDS);
-
-		driverHelperNew = new DriverHelperNew(this.driver);
+		
+		this.driver = new EventFiringWebDriver(driver);
+		this.driver.register(new DriverListener());
+		
+		driver.manage().timeouts().pageLoadTimeout(60, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+		driverHelper = new DriverHelper(driver);
 		return driver;
 
 	}
@@ -97,18 +86,6 @@ public class EDriverNew {
 		ChromeOptions();
 
 		crChromeOptions.addArguments("--start-maximized");
-		return new ChromeDriver(crChromeOptions);
-
-	}
-
-	private ChromeDriver getHeadlessChromeDriver() {
-		WebDriverManager.chromedriver().setup();
-		ChromeOptions crChromeOptions = new
-
-		ChromeOptions();
-
-		crChromeOptions.addArguments("--start-maximized");
-		crChromeOptions.addArguments("--headless");
 		return new ChromeDriver(crChromeOptions);
 
 	}

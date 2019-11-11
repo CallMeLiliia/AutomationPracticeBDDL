@@ -1,46 +1,48 @@
-package new_driver_factory;
-import java.io.IOException;
+package driver_factory;
+
+
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.events.WebDriverEventListener;
-import utils.DriverHelper;
-import new_driver_factory.ReporterNew;
-public class DriverListenerNew implements WebDriverEventListener{
 
-private Logger logger =
 
-Logger.getLogger(DriverListenerNew.class);
+
+public class DriverListener implements WebDriverEventListener{
+
+private Logger logger =Logger.getLogger(DriverListener.class);
 
 @Override
 public void beforeAlertAccept(WebDriver driver) {
 
 logger.info("beforeAlertAccept");
+
 }
 @Override
 public void afterAlertAccept(WebDriver driver) {
 // TODO Auto-generated method stub
+
 }
 @Override
 public void afterAlertDismiss(WebDriver driver) {
 // TODO Auto-generated method stub
+
 }
 @Override
 public void beforeAlertDismiss(WebDriver driver) {
 // TODO Auto-generated method stub
+
 }
 @Override
 public void beforeNavigateTo(String url, WebDriver driver) {
 
-// TODO Auto-generated method stub
+//Reporter.step.info("**Navigated to : "+url);
+
 }
 @Override
 public void afterNavigateTo(String url, WebDriver driver) {
-
-ReporterNew.step.info("** Navigated to: "+ url);
-
 }
 @Override
 public void beforeNavigateBack(WebDriver driver) {
@@ -77,37 +79,49 @@ public void afterNavigateRefresh(WebDriver driver) {
 
 }
 @Override
-public void beforeFindBy(By by, WebElement element,WebDriver driver) {
+public void beforeFindBy(By by, WebElement element,
+
+WebDriver driver) {
 
 // TODO Auto-generated method stub
 
 }
 @Override
-public void afterFindBy(By by, WebElement element,WebDriver driver) {
+public void afterFindBy(By by, WebElement element,
+
+WebDriver driver) {
 
 // TODO Auto-generated method stub
 
 }
 @Override
-public void beforeClickOn(WebElement element, WebDriver driver) {
+public void beforeClickOn(WebElement element, WebDriver
 
-String txt=element.getText();
-ReporterNew.step.info("Clcked on "+ txt);
+driver) {
+
+//String txt=element.getText();
+//Reporter.step.info("Clcked on "+ txt);
 
 }
 @Override
-public void afterClickOn(WebElement element, WebDriver driver) {
+public void afterClickOn(WebElement element, WebDriver
+
+driver) {
 
 // TODO Auto-generated method stub
 
 }
 @Override
-public void beforeChangeValueOf(WebElement element,WebDriver driver, CharSequence[] keysToSend) {
+public void beforeChangeValueOf(WebElement element,
+
+WebDriver driver, CharSequence[] keysToSend) {
 // TODO Auto-generated method stub
 
 }
 @Override
-public void afterChangeValueOf(WebElement element,WebDriver driver, CharSequence[] keysToSend) {
+public void afterChangeValueOf(WebElement element,
+
+WebDriver driver, CharSequence[] keysToSend) {
 // TODO Auto-generated method stub
 
 }
@@ -124,32 +138,36 @@ public void afterScript(String script, WebDriver driver) {
 
 }
 @Override
-public void beforeSwitchToWindow(String windowName,WebDriver driver) {
+public void beforeSwitchToWindow(String windowName,
+
+WebDriver driver) {
 
 // TODO Auto-generated method stub
 
 }
 @Override
-public void afterSwitchToWindow(String windowName,WebDriver driver) {
+public void afterSwitchToWindow(String windowName,
+
+WebDriver driver) {
 
 // TODO Auto-generated method stub
 
 }
 @Override
-public void onException(Throwable throwable, WebDriver driver) {
+public void onException(Throwable throwable, WebDriver
 
-String
-
-imagePath=DriverHelper.takeScreenshotForReporting(driver);
-
-try {
-
-ReporterNew.step.error(throwable).addScreenCaptureFromPath(imagePath);
-
-} catch (IOException e) {
-e.printStackTrace();
-
-}
+driver) {
+//
+////String imagePath=DriverHelper.takeScreenshotForReporting(driver);
+//
+//try {
+//
+//Reporter.step.error(throwable).addScreenCaptureFromPath(imagePath);
+//
+//} catch (IOException e) {
+//e.printStackTrace();
+//
+//}
 
 }
 @Override
