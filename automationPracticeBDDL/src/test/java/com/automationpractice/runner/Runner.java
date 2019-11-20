@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {"src/test/resources/features/login.feature"},
-		glue = {"com.automationpractice.login"},
+		glue = {"com.automationpractice.steps.login"},
 		monochrome =true
 	//	dryRun = true
 		)

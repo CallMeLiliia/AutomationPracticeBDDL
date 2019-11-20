@@ -13,21 +13,17 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.junit.Assert;
-import org.junit.Assert.*;
+import static org.junit.Assert.*;
+
 
 public class DriverHelper {
 	private String mainWindowhandle;
 	private WebDriver driver;
 
 	public DriverHelper(WebDriver driver) {
-		this.driver = driver;
-	}
-
-	public DriverHelper(EventFiringWebDriver driver) {
 		this.driver = driver;
 	}
 
@@ -192,7 +188,7 @@ public class DriverHelper {
 //		JavascriptExecutor js = (JavascriptExecutor) driver;
 //		js.executeScript("arguments[0].style.border='3px dotted red'", webElement);
 			takeScreenshot();
-			Assert.assertEquals(actualText, expectedText);
+			assertEquals(actualText, expectedText);
 //		throw new AssertionError();
 		}
 	}

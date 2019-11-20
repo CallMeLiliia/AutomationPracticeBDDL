@@ -1,6 +1,6 @@
 package com.automationpractice.utilities;
 
-import java.util.concurrent.TimeUnit;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -9,27 +9,31 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * October 22,2019
- * @author kulis
+ *  * @author kulis
  *
  */
-public class DriverFactory {
-	
-	
-	
-protected static WebDriver driver;
-protected static DriverHelper driverHelper;
+final class DriverFactory {
 
-static {
-	if (driver == null) {
-		driver = getDriver(AppProperties.BROWSER_TYPE);
-	
-	driverHelper= new DriverHelper(driver);
-}}
+	private static WebDriver driver;
+	private static Logger logger = Logger.getLogger(DriverFactory.class);
 
+	 static WebDriver getDriver() {
+		if (driver == null) {
+			driver = getActiveDriver();
+		}
+		return driver;
+	}
 
- 
+	static void closeDriver() {
+		if (driver != null) {
+			driver.close();
+			driver.quit();
+			driver = null;
+		}
+	}
 
-	protected synchronized static WebDriver getDriver(String browserType) {
+	private synchronized static WebDriver getActiveDriver() {
+		String browserType = AppProperties.BROWSER_TYPE;
 		switch (browserType) {
 		case "chrome":
 			driver = getChromeDriver();
@@ -37,20 +41,15 @@ static {
 			break;
 		case "chrome-headless":
 			driver = getHeadlessChromeDriver();
-			driver.manage().window().maximize();
 			break;
 		case "firefox":
 			driver = getFirefoxDriver();
-			driver.manage().window().maximize();
 			break;
 		default:
 			System.out.println("Browser type " + browserType + " invalid");
 			break;
 		}
-
-
-		driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		logger.info("Driver type set to " + browserType);
 		return driver;
 	}
 
@@ -58,7 +57,6 @@ static {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions crChromeOptions = new ChromeOptions();
 		crChromeOptions.addArguments("--start-maximized");
-		crChromeOptions.addArguments("--headless");
 		return new ChromeDriver(crChromeOptions);
 	}
 
@@ -66,6 +64,7 @@ static {
 		WebDriverManager.chromedriver().setup();
 		ChromeOptions crChromeOptions = new ChromeOptions();
 		crChromeOptions.addArguments("--start-maximized");
+		crChromeOptions.addArguments("--headless");
 		return new ChromeDriver(crChromeOptions);
 	}
 
