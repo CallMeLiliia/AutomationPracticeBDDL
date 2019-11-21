@@ -1,0 +1,213 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 13922388300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.setUp()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "User should able to contact",
+        "description": "",
+        "id": "contact-us;user-should-able-to-contact",
+        "after": [
+          {
+            "result": {
+              "duration": 793300500,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 832859900,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks on Contact Us link",
+            "match": {
+              "location": "HomeSteps.userClickOnContactUsLink()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "error_message": "org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by By.id: fileUpload (tried for 15 second(s) with 500 milliseconds interval)\nBuild info: version: \u00273.141.59\u0027, revision: \u0027e82be7d358\u0027, time: \u00272018-11-14T08:17:03\u0027\nSystem info: host: \u0027DESKTOP-TBD4149\u0027, ip: \u0027192.168.126.1\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_201\u0027\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nCapabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 78.0.3904.97, chrome: {chromedriverVersion: 78.0.3904.105 (60e2d8774a81..., userDataDir: C:\\Users\\kulis\\AppData\\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:57914}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}\nSession ID: d136ceaeeea55fe46359e29272a49d9d\r\n\tat org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:95)\r\n\tat org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:272)\r\n\tat com.automationpractice.utilities.DriverHelper.waitForElementVisibility(DriverHelper.java:40)\r\n\tat com.automationpractice.utilities.DriverHelper.getElement(DriverHelper.java:44)\r\n\tat com.automationpractice.utilities.DriverHelper.sendKeys(DriverHelper.java:78)\r\n\tat com.automationpractice.pages.contact_us.ContactUsPage.attachFile(ContactUsPage.java:54)\r\n\tat com.automationpractice.steps.contact_us.ContactUsSteps.user_populates_Contact_Us_form(ContactUsSteps.java:34)\r\n\tat ✽.User populates Contact Us form(src\\test\\resources\\features\\contact_us.feature:7)\r\n",
+              "duration": 16917875800,
+              "status": "failed"
+            },
+            "line": 7,
+            "name": "User populates Contact Us form",
+            "match": {
+              "location": "ContactUsSteps.user_populates_Contact_Us_form()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 22600,
+              "status": "skipped"
+            },
+            "line": 8,
+            "name": "User Clicks on Send button",
+            "match": {
+              "location": "ContactUsSteps.user_Clicks_on_Send_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11800,
+              "status": "skipped"
+            },
+            "line": 9,
+            "name": "User should vie success message",
+            "match": {
+              "location": "ContactUsSteps.user_should_vie_success_message()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@contactUs"
+          },
+          {
+            "name": "@smoketest"
+          }
+        ]
+      }
+    ],
+    "name": "Contact us",
+    "description": "",
+    "id": "contact-us",
+    "keyword": "Feature",
+    "uri": "src\\test\\resources\\features\\contact_us.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 12018861300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.setUp()"
+            }
+          }
+        ],
+        "line": 8,
+        "name": "Validate user login",
+        "description": "",
+        "id": "login;validate-user-login",
+        "after": [
+          {
+            "result": {
+              "duration": 788157700,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.tearDown()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1344400,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User navigates to home page",
+            "match": {
+              "location": "LoginSteps.userNavigatesToHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1061671100,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "User user clicks on sign in link",
+            "match": {
+              "location": "HomeSteps.user_user_clicks_on_sign_in_link()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 317604200,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "User inputs  email and password",
+            "match": {
+              "location": "LoginSteps.user_inputs_email_and_password()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1340173600,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "User clicks sign in button",
+            "match": {
+              "location": "LoginSteps.user_clicks_sign_in_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 102935200,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "User is on account page",
+            "match": {
+              "location": "LoginSteps.user_is_on_account_page()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@login"
+          },
+          {
+            "name": "@smoketest"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "src\\test\\resources\\features\\login.feature",
+    "tags": []
+  }
+]

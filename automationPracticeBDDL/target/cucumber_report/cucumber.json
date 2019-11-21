@@ -1,0 +1,104 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 13921434300,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.setUp()"
+            }
+          }
+        ],
+        "line": 16,
+        "name": "User login validation with invalid credential",
+        "description": "",
+        "id": "login;user-login-validation-with-invalid-credential",
+        "after": [
+          {
+            "result": {
+              "duration": 753886900,
+              "status": "passed"
+            },
+            "match": {
+              "location": "Hook.tearDown(Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 20420700,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "User navigates to home page",
+            "match": {
+              "location": "LoginSteps.userNavigatesToHomePage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1235870700,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "User user clicks on sign in link",
+            "match": {
+              "location": "HomeSteps.user_user_clicks_on_sign_in_link()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 19,
+            "name": "User inputs \"\" and \"\"",
+            "match": {},
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 33900,
+              "status": "skipped"
+            },
+            "line": 20,
+            "name": "User clicks sign in button",
+            "match": {
+              "location": "LoginSteps.user_clicks_sign_in_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "undefined"
+            },
+            "line": 21,
+            "name": "User should see error message",
+            "match": {},
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@negative"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "src\\test\\resources\\features\\login.feature",
+    "tags": []
+  }
+]
