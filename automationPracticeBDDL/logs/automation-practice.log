@@ -1,5 +1,14 @@
-2019-11-20 16:19:20 INFO  DriverFactory - main : 52 - Driver type set to chrome
-2019-11-20 16:19:24 INFO  HomePage - main : 29 - Clicked on Sign In Link
-2019-11-20 16:19:24 INFO  LoginPage - main : 33 - Entered an email as abc213@mailinator.com
-2019-11-20 16:19:24 INFO  LoginPage - main : 37 - Entered password as abc1234
-2019-11-20 16:19:25 INFO  HomePage - main : 29 - Clicked on Sign In Link
+2019-11-23 13:26:05 INFO  DriverFactory - main : 52 - Driver type set to chrome
+2019-11-23 13:26:09 INFO  HomePage - main : 30 - Clicked on Sign In Link
+2019-11-23 13:26:09 INFO  LoginPage - main : 31 - Entered an email as abc213@mailinator.com
+2019-11-23 13:26:09 INFO  LoginPage - main : 35 - Entered password as invalid
+2019-11-23 13:26:10 INFO  LoginPage - main : 39 - Clicked on Sign In button
+2019-11-23 13:26:12 INFO  Common - main : 24 - sleep for 2000 seconds
+2019-11-23 13:26:13 INFO  LoginPage - main : 31 - Entered an email as invalid@gmail.com
+2019-11-23 13:26:13 INFO  LoginPage - main : 35 - Entered password as abc1234
+2019-11-23 13:26:14 INFO  LoginPage - main : 39 - Clicked on Sign In button
+2019-11-23 13:26:16 INFO  Common - main : 24 - sleep for 2000 seconds
+2019-11-23 13:26:17 INFO  LoginPage - main : 31 - Entered an email as invalid
+2019-11-23 13:26:17 INFO  LoginPage - main : 35 - Entered password as invalid
+2019-11-23 13:26:18 INFO  LoginPage - main : 39 - Clicked on Sign In button
+2019-11-23 13:26:20 INFO  Common - main : 24 - sleep for 2000 seconds

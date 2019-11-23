@@ -22,6 +22,7 @@ public class AppProperties {
 
 	public static final String AUTOMATION_PRACTICE_BASE_URL = properties.getProperty("automation_practice_base_url");
 	public static final String BROWSER_TYPE = properties.getProperty("browser_type");
+	public static final boolean IS_EACH_STEP_SCREENSHOT = Boolean.valueOf(properties.getProperty("take_screenshot_on_each_step"));
 
 	private static Properties getProperties() {
 		Properties properties = new Properties();

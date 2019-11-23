@@ -3,10 +3,65 @@
     "line": 1,
     "elements": [
       {
+        "line": 7,
+        "name": "User login",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 7848501,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "User navigates to home page",
+            "match": {
+              "location": "LoginSteps.userNavigatesToHomePage()"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 25900,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "Hook.afterStep(Scenario)"
+                }
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1837338700,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "User user clicks on sign in link",
+            "match": {
+              "location": "HomeSteps.user_user_clicks_on_sign_in_link()"
+            },
+            "after": [
+              {
+                "result": {
+                  "duration": 23200,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "Hook.afterStep(Scenario)"
+                }
+              }
+            ],
+            "keyword": "When "
+          }
+        ]
+      },
+      {
         "before": [
           {
             "result": {
-              "duration": 13921434300,
+              "duration": 16514153899,
               "status": "passed"
             },
             "match": {
@@ -14,14 +69,14 @@
             }
           }
         ],
-        "line": 16,
+        "line": 35,
         "name": "User login validation with invalid credential",
         "description": "",
         "id": "login;user-login-validation-with-invalid-credential",
         "after": [
           {
             "result": {
-              "duration": 753886900,
+              "duration": 212401,
               "status": "passed"
             },
             "match": {
@@ -34,62 +89,64 @@
         "steps": [
           {
             "result": {
-              "duration": 20420700,
+              "duration": 11266247001,
               "status": "passed"
             },
-            "line": 17,
-            "name": "User navigates to home page",
+            "line": 36,
+            "name": "User inputs  email, password, clicks sign in button and validate errore message",
             "match": {
-              "location": "LoginSteps.userNavigatesToHomePage()"
+              "location": "LoginSteps.user_inputs_email_password_clicks_sign_in_button_and_validate_errore_message(DataTable)"
             },
-            "keyword": "Given "
-          },
-          {
-            "result": {
-              "duration": 1235870700,
-              "status": "passed"
-            },
-            "line": 18,
-            "name": "User user clicks on sign in link",
-            "match": {
-              "location": "HomeSteps.user_user_clicks_on_sign_in_link()"
-            },
-            "keyword": "When "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 19,
-            "name": "User inputs \"\" and \"\"",
-            "match": {},
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "duration": 33900,
-              "status": "skipped"
-            },
-            "line": 20,
-            "name": "User clicks sign in button",
-            "match": {
-              "location": "LoginSteps.user_clicks_sign_in_button()"
-            },
-            "keyword": "And "
-          },
-          {
-            "result": {
-              "status": "undefined"
-            },
-            "line": 21,
-            "name": "User should see error message",
-            "match": {},
+            "after": [
+              {
+                "result": {
+                  "duration": 81500,
+                  "status": "passed"
+                },
+                "match": {
+                  "location": "Hook.afterStep(Scenario)"
+                }
+              }
+            ],
+            "rows": [
+              {
+                "cells": [
+                  "email",
+                  "password",
+                  "error message"
+                ]
+              },
+              {
+                "cells": [
+                  "abc213@mailinator.com",
+                  "invalid",
+                  "There is 1 error Authentication failed."
+                ]
+              },
+              {
+                "cells": [
+                  "invalid@gmail.com",
+                  "abc1234",
+                  "There is 1 error Authentication failed."
+                ]
+              },
+              {
+                "cells": [
+                  "invalid",
+                  "invalid",
+                  "There is 1 error Invalid email address."
+                ]
+              }
+            ],
             "keyword": "Then "
           }
         ],
         "tags": [
           {
             "name": "@negative"
+          },
+          {
+            "name": "@wip"
           }
         ]
       }

@@ -27,3 +27,9 @@ Examples: users
 |Selcuk     |Once     |Turkey |Ola    |
 |Emma       |Haug     |Usa    |Privet |
 
+
+@sampleTable
+Scenario: As an user I should be able to print all values from sample table
+Given User navigates to""
+When User is able to view Sample table
+Then User should be able to print values to console

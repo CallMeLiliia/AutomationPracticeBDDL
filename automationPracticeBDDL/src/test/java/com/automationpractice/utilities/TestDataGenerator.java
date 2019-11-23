@@ -48,5 +48,18 @@ public final class TestDataGenerator {
 	public static int getRandomInt(int min, int max) {
 		return (int) (Math.random() * ((max - min) + 1)) + min;
 	}
+	
+	public static String getRandomText(int numberOfCharacters) {
+		if(numberOfCharacters<=0) {
+			Common.failTest("Number of characters can not be <=0");
+		}
+		StringBuilder stringBuilder = new StringBuilder();
+		boolean isText = true;
+		while(isText) {
+		int textLength = stringBuilder.append(faker.paragraph()).length();
+			isText = textLength < numberOfCharacters;
+		}
+		return stringBuilder.substring(0, numberOfCharacters).replace("\\s", "").trim();
+	}
 
 }

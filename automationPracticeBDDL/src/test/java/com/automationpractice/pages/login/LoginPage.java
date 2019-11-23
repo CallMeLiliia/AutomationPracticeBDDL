@@ -4,13 +4,11 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.automationpractice.pages.home.HomePage;
 import com.automationpractice.utilities.CommonPage;
 import com.automationpractice.utilities.DriverHelper;
 
 /**
  * November, 20 2019
- * 
  * @author kulis
  *
  */
@@ -39,6 +37,10 @@ public class LoginPage extends CommonPage {
 	public void clickSignInButton() {
 		driverHelper.click(signInButton, timeOutInSeconds);
 		logger.info("Clicked on Sign In button");
+	}
+	
+	public String getErrorMessage () {
+		return driverHelper.getText(By.cssSelector(".alert-danger"), timeOutInSeconds);
 	}
 
 }

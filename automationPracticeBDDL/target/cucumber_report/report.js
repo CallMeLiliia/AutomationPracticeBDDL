@@ -4,15 +4,10 @@ formatter.feature({
   "description": "",
   "keyword": "Feature"
 });
-formatter.scenario({
-  "name": "User login validation with invalid credential",
+formatter.background({
+  "name": "User login",
   "description": "",
-  "keyword": "Scenario",
-  "tags": [
-    {
-      "name": "@negative"
-    }
-  ]
+  "keyword": "Background"
 });
 formatter.before({
   "status": "passed"
@@ -27,6 +22,9 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
+formatter.afterstep({
+  "status": "passed"
+});
 formatter.step({
   "name": "User user clicks on sign in link",
   "keyword": "When "
@@ -37,31 +35,64 @@ formatter.match({
 formatter.result({
   "status": "passed"
 });
-formatter.step({
-  "name": "User inputs \"\" and \"\"",
-  "keyword": "And "
+formatter.afterstep({
+  "status": "passed"
 });
-formatter.match({});
-formatter.result({
-  "status": "undefined"
-});
-formatter.step({
-  "name": "User clicks sign in button",
-  "keyword": "And "
-});
-formatter.match({
-  "location": "LoginSteps.user_clicks_sign_in_button()"
-});
-formatter.result({
-  "status": "skipped"
+formatter.scenario({
+  "name": "User login validation with invalid credential",
+  "description": "",
+  "keyword": "Scenario",
+  "tags": [
+    {
+      "name": "@negative"
+    },
+    {
+      "name": "@wip"
+    }
+  ]
 });
 formatter.step({
-  "name": "User should see error message",
+  "name": "User inputs  email, password, clicks sign in button and validate errore message",
+  "rows": [
+    {
+      "cells": [
+        "email",
+        "password",
+        "error message"
+      ]
+    },
+    {
+      "cells": [
+        "abc213@mailinator.com",
+        "invalid",
+        "There is 1 error Authentication failed."
+      ]
+    },
+    {
+      "cells": [
+        "invalid@gmail.com",
+        "abc1234",
+        "There is 1 error Authentication failed."
+      ]
+    },
+    {
+      "cells": [
+        "invalid",
+        "invalid",
+        "There is 1 error Invalid email address."
+      ]
+    }
+  ],
   "keyword": "Then "
 });
-formatter.match({});
+formatter.match({
+  "location": "LoginSteps.user_inputs_email_password_clicks_sign_in_button_and_validate_errore_message(DataTable)"
+});
 formatter.result({
-  "status": "undefined"
+  "status": "passed"
+});
+formatter.afterstep({
+  "status": "passed"
 });
 formatter.after({
   "status": "passed"

@@ -19,6 +19,7 @@ public class HomePage extends CommonPage{
 	private DriverHelper driverHelper = getDriverHelper();
 	
 	private By signInLink = By.className("login");
+	private By contactUsLink = By.linkText("Contact us");
 		
 	public HomePage(WebDriver driver) {
 		super(driver);
@@ -27,6 +28,10 @@ public class HomePage extends CommonPage{
 	public void clicSignInLink() {
 		driverHelper.click(signInLink, timeOutInSeconds );
 		logger.info("Clicked on Sign In Link");
+	}
+	public void clickContactUsLink() {
+		driverHelper.click(contactUsLink, timeOutInSeconds);
+		logger.info("Clicked on Contect Us Link");
 	}
 
 }

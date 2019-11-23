@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.automationpractice.pages.home.HomePage;
 import com.automationpractice.utilities.CommonPage;
 import com.automationpractice.utilities.DriverHelper;
 
